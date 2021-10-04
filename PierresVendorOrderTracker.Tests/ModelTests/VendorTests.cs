@@ -60,5 +60,16 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(0, allVendorOrders.Count);
     }
 
+    [TestMethod]
+    public void GetAllVendors_TwoVendors_TwoVendorDictionary()
+    {
+      string vendorTwoName = "Ken's Artisan Bakery";
+      string descriptionTwo = "New American Bakery with European Flair";
+      Vendor vendorTwoObject = new Vendor(vendorTwoName, descriptionTwo);
+
+      Dictionary<int, Vendor> currentVendors = Vendor.GetAllVendors();
+      Assert.AreEqual(2, currentVendors.Count);
+    }
+
   }
 }
