@@ -23,5 +23,13 @@ namespace VendorOrderTracker.Tests
       string description = "New American Bakery";
       _vendorObject = new Vendor(vendorName, description);
     }
+
+    [TestMethod]
+    public void GetAllOrders_NoOrders_EmptyList()
+    {
+      List<Order> allVendorOrders = _vendorObject.GetAllOrders();
+      Assert.AreEqual(0, allVendorOrders.Count);
+    }
+
   }
 }
