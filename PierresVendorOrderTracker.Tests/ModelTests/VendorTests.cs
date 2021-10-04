@@ -15,5 +15,13 @@ namespace VendorOrderTracker.Tests
     {
       Vendor.ClearVendors();
     }
+
+    [TestInitialize]
+    public void Initialize()
+    {
+      string vendorName = "Little T";
+      string description = "New American Bakery";
+      _vendorObject = new Vendor(vendorName, description);
+    }
   }
 }
