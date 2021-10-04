@@ -45,5 +45,20 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(1, allVendorOrders.Count);
     }
 
+     [TestMethod]
+    public void ClearOrders_OneOrder_EmptyList()
+    {
+      string orderTitle = "Loaf Order";
+      string orderDescription = "5 Loaves - $5.00 each";
+      string orderDate = "10/04/2021";
+      string deliveryDate = "10/06/2021";
+      decimal price = 20.00m;
+      Order newOrder = new Order(orderTitle, orderDescription, orderDate, deliveryDate, price);
+      _vendorObject.AddOrder(newOrder);
+      _vendorObject.ClearOrders();
+      List<Order> allVendorOrders = _vendorObject.GetAllOrders();
+      Assert.AreEqual(0, allVendorOrders.Count);
+    }
+
   }
 }
