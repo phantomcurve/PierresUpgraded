@@ -45,7 +45,7 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(1, allVendorOrders.Count);
     }
 
-     [TestMethod]
+    [TestMethod]
     public void ClearOrders_OneOrder_EmptyList()
     {
       string orderTitle = "Loaf Order";
@@ -71,5 +71,18 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(2, currentVendors.Count);
     }
 
+    [TestMethod]
+    public void DeleteVendor_Vendor_OneVendorDictionary()
+    {
+      string vendorTwoName = "Ken's Artisan Bakery";
+      string descriptionTwo = "New American Bakery with European Flair";
+      Vendor vendorTwoObject = new Vendor(vendorTwoName, descriptionTwo);
+
+      Vendor.DeleteVendor(_vendorObject.Id);
+
+      Dictionary<int, Vendor> currentVendors = Vendor.GetAllVendors();
+      Assert.AreEqual(1, currentVendors.Count);
+      Assert.IsFalse(currentVendors.ContainsKey(_vendorObject.Id));
+    }
   }
 }
